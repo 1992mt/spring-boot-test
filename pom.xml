@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.wisedu</groupId>
+	<artifactId>spring-boot</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<!-- Inherit defaults from Spring Boot 从Spring引导继承默认值 -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.3.RELEASE</version>
+		<relativePath />
+	</parent>
+
+	<!-- Add typical dependencies for a web application 为web应用程序添加典型依赖项 mvc的支持 -->
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!--模板引擎 -->
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency> -->
+
+		<!-- 想要兼容Jsp 必须要添加以下2个文件 -->
+		<!-- <dependency> <groupId>org.apache.tomcat.embed</groupId> <artifactId>tomcat-embed-jasper</artifactId> 
+			<scope>provided</scope> </dependency> -->
+
+		<!-- JSTL（JSP Standard TagLibrary，JSP标准标签库)是一个不断完善的开放源代码的JSP标签库，是由apache的jakarta小组来维护的。JSTL只能运行在支持JSP1.2和Servlet2.3规范的容器上，如tomcat 
+			4.x。在JSP2.0中也是作为标准支持的。 不然报异常信息： javax.servlet.ServletException:Circular view 
+			path [/helloJsp]: would dispatch back to the current handler URL[/helloJsp] 
+			again. Check your ViewResolver setup! (Hint: This may be the resultof an 
+			unspecified view, due to default view name generation.) -->
+		<!-- <dependency> <groupId>javax.servlet.jsp.jstl</groupId> <artifactId>jstl-api</artifactId> 
+			<version>1.2</version> </dependency> -->
+
+		<!-- servlet依赖. -->
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<!-- <scope>provided</scope> -->
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<!-- <scope>provided</scope> -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<!-- <scope>provided</scope> -->
+		</dependency>
+
+	</dependencies>
+
+	<!-- Package as an executable JAR 包作为可执行JAR -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- Allow access to Spring milestones and snapshots -->
+	<!-- (you don't need this if you are using anything after 0.5.0.RELEASE) -->
+	<!-- <repositories> <repository> <id>spring-snapshots</id> <url>http://repo.spring.io/snapshot</url> 
+		<snapshots> <enabled>true</enabled> </snapshots> </repository> <repository> 
+		<id>spring-milestones</id> <url>http://repo.spring.io/milestone</url> <snapshots> 
+		<enabled>true</enabled> </snapshots> </repository> </repositories> <pluginRepositories> 
+		<pluginRepository> <id>spring-snapshots</id> <url>http://repo.spring.io/snapshot</url> 
+		</pluginRepository> <pluginRepository> <id>spring-milestones</id> <url>http://repo.spring.io/milestone</url> 
+		</pluginRepository> </pluginRepositories> -->
+
+
+</project>
