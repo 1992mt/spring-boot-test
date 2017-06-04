@@ -1,0 +1,17 @@
+spirng-boot 测试(约定大于配置)
+
+Spring Boot使我们更容易去创建基于Spring的独立和产品级的可以”即时运行“的应用和服务。支持约定大于配置，目的是尽可能快地构建和运行Spring应用。
+通过java -jar运行启动或者传统的WAR部署。其也提供了命令行工具来直接运行Spring脚本（如groovy脚本）。也就是说Spring Boot让Spring应用从配置到运行变的更加简单，但不对Spring本身提供增强（即额外的功能）。
+
+继承spring-boot-starter-parent后我们可以继承一些默认的依赖，这样就无需添加一堆相应的依赖，把依赖配置最小化；spring-boot-starter-web提供了对web的支持，spring-boot-maven-plugin提供了直接运行项目的插件，我们可以直接mvn spring-boot:run运行。
+
+运行方式：
+第一种方式
+通过在UserController中加上@EnableAutoConfiguration开启自动配置，然后通过SpringApplication.run(UserController.class);运行这个控制器；这种方式只运行一个控制器比较方便；
+第二种方式
+通过@Configuration+@ComponentScan开启注解扫描并自动注册相应的注解Bean
+
+默认资源映射：（优先级顺序为：META/resources > resources > static > public ）
+其中默认配置的 /** 映射到 /static （或/public、/resources、/META-INF/resources）
+其中默认配置的 /webjars/** 映射到 classpath:/META-INF/resources/webjars/
+PS：上面的 static、public、resources 等目录都在 classpath: 下面（如 src/main/resources/static）。
