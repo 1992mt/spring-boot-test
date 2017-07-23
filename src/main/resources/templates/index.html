@@ -1,35 +1,24 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript" src="/resource/script/lib/jquery.min.js"></script>
-</head>
-<script type="text/javascript">  
-$(function(){     
-    /*  
-    //简写形式，效果相同  
-    $.getJSON("http://app.example.com/base/json.do?sid=1494&busiId=101&jsonpCallback=?",  
-            function(data){  
-                $("#showcontent").text("Result:"+data.result)  
-    });  
-    */  
-    $.ajax({  
-        type : "get",  
-        async:false,  
-        url : "http://192.168.1.105:8082/base/json.do?sid=1494&busiId=101",  
-        dataType : "jsonp",//数据类型为jsonp  
-        jsonp: "jsonpCallback",//服务端用于接收callback调用的function名的参数  
-        success : function(data){  
-            $("#showcontent").text("Result:"+data.result)  
-        },  
-        error:function(){  
-            alert('fail');  
-        }  
-    });   
-});  
-</script>
-<body>
-	<div id="showcontent">Result:</div>
-</body>
+  <html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <title>index.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3"/>
+    <meta name="description" content="this is my page"/>
+    <meta name="content-type" content="text/html; charset=UTF-8"/>
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<!--     <script type="text/javascript" src="../resource/script/lib/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+    		
+    </script> -->
+  </head>
+  
+  <body>
+      <p>userName:</p><span th:text="${username}"></span>
+  </body>
 </html>

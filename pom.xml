@@ -19,6 +19,12 @@
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
@@ -129,7 +135,25 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
 		</dependency>
+	<!-- 	<dependency>
+			<groupId>net.unicon.cas</groupId>
+			<artifactId>cas-client-autoconfig-support</artifactId>
+			<version>1.4.0-GA</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>cas-client-core</artifactId>
+					<groupId>org.jasig.cas.client</groupId>
+					<version>3.4.1</version>
+				</exclusion>
+			</exclusions>
+		</dependency> -->
 
+		<!-- 公司统一认证服务提供的jar，不可以从网上下载 -->
+		<dependency>
+			<groupId>com.wisedu</groupId>
+			<artifactId>cas-client-core</artifactId>
+			<version>3.2.1</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>

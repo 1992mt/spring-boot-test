@@ -85,7 +85,7 @@ public class LogRecordAspect {
 
 		// result的值就是被拦截方法的返回值
 		Object result = pjp.proceed();
-		logger.info("请求结束，controller的返回值是 " + result.toString());
+		//logger.info("请求结束，controller的返回值是 " + result.toString());
 		return result;
 	}
 }

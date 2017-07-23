@@ -1,13 +1,4 @@
 package com.it.springbootconfig;
-/**  
-* @Title: CasConfig.java
-* @Package com.wisedu.zzfw.config
-* @Description: TODO(用一句话描述该文件做什么)
-* @author   mt  
-* @date 2017年7月18日 下午2:32:16
-* @version V1.0  
-*/
-package com.it.springbootconfig;
 
 import org.jasig.cas.client.authentication.AuthenticationFilter;
 import org.jasig.cas.client.session.SingleSignOutFilter;
@@ -44,7 +35,7 @@ public class CasConfig {
 	}
 
 	/**
-	 * 用于实现单点登出功能
+	 * 用于实现单点登出功能(监听session销毁)
 	 */
 	@Bean
 	public ServletListenerRegistrationBean<SingleSignOutHttpSessionListener> singleSignOutHttpSessionListener() {
@@ -58,23 +49,23 @@ public class CasConfig {
 	/**
 	 * 该过滤器用于实现单点登出功能，单点退出配置，一定要放在其他filter之前
 	 */
-	@Bean
-	public FilterRegistrationBean logOutFilter() {
-		FilterRegistrationBean filterRegistration = new FilterRegistrationBean();
-		LogoutFilter logoutFilter = new LogoutFilter(
-				autoconfig.getCasServerUrlPrefix() + "/logout?service=" + autoconfig.getServerName(),
-				new SecurityContextLogoutHandler());
-		filterRegistration.setFilter(logoutFilter);
-		filterRegistration.setEnabled(casEnabled);
-		if (autoconfig.getSignOutFilters().size() > 0)
-			filterRegistration.setUrlPatterns(autoconfig.getSignOutFilters());
-		else
-			filterRegistration.addUrlPatterns("/logout");
-		filterRegistration.addInitParameter("casServerUrlPrefix", autoconfig.getCasServerUrlPrefix());
-		filterRegistration.addInitParameter("serverName", autoconfig.getServerName());
-		filterRegistration.setOrder(2);
-		return filterRegistration;
-	}
+//	@Bean
+//	public FilterRegistrationBean logOutFilter() {
+//		FilterRegistrationBean filterRegistration = new FilterRegistrationBean();
+//		LogoutFilter logoutFilter = new LogoutFilter(
+//				autoconfig.getCasServerUrlPrefix() + "/logout?service=" + autoconfig.getServerName(),
+//				new SecurityContextLogoutHandler());
+//		filterRegistration.setFilter(logoutFilter);
+//		filterRegistration.setEnabled(casEnabled);
+//		if (autoconfig.getSignOutFilters().size() > 0)
+//			filterRegistration.setUrlPatterns(autoconfig.getSignOutFilters());
+//		else
+//			filterRegistration.addUrlPatterns("/logout");
+//		filterRegistration.addInitParameter("casServerUrlPrefix", autoconfig.getCasServerUrlPrefix());
+//		filterRegistration.addInitParameter("serverName", autoconfig.getServerName());
+//		filterRegistration.setOrder(2);
+//		return filterRegistration;
+//	}
 
 	/**
 	 * 该过滤器用于实现单点登出功能，单点退出配置，一定要放在其他filter之前
@@ -111,8 +102,8 @@ public class CasConfig {
 		// 本项目登录ip+port
 		filterRegistration.addInitParameter("serverName", autoconfig.getServerName());
 		filterRegistration.addInitParameter("useSession", autoconfig.isUseSession() ? "true" : "false");
-		filterRegistration.addInitParameter("redirectAfterValidation",
-				autoconfig.isRedirectAfterValidation() ? "true" : "false");
+//		filterRegistration.addInitParameter("redirectAfterValidation",
+//				autoconfig.isRedirectAfterValidation() ? "true" : "false");
 		filterRegistration.setOrder(4);
 		return filterRegistration;
 	}

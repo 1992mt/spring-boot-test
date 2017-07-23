@@ -22,6 +22,7 @@ import com.it.entity.User;
 
 /**
  * 自定义注解的切面
+ * 通过aop来实现自定义注解的具体业务功能
  * 
  * @author mt
  *
