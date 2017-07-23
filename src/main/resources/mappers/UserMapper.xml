@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.it.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.it.entity.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uname" jdbcType="VARCHAR" property="uname" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="udec" jdbcType="VARCHAR" property="udec" />
+    <result column="pass" jdbcType="VARCHAR" property="pass" />
+  </resultMap>
+</mapper>
