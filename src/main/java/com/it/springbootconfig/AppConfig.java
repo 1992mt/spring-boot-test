@@ -1,4 +1,4 @@
-package com.wisedu.common;
+package com.it.springbootconfig;
 
 import java.util.Arrays;
 
@@ -11,11 +11,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-@ComponentScan("com.wisedu")
-@EnableCaching
+//@Configuration
+//@ComponentScan("com.it")
+//@EnableCaching
 public class AppConfig {
-	 @Bean
+//	 @Bean
 	    public CacheManager cacheManager() {
 	       SimpleCacheManager cacheManager = new SimpleCacheManager();
 	       Cache cache1 = new ConcurrentMapCache("mycacheone");

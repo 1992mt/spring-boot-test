@@ -1,8 +1,8 @@
 package com.test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.wisedu.common.AppConfig;
-import com.wisedu.service.UserService;
+import com.it.service.UserService;
+import com.it.springbootconfig.AppConfig;
 public class CacheDemo {
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
